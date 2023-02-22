@@ -1,10 +1,4 @@
-import '../styles/global.css'
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function AuthLayout({children}: any){
   return (
     <html lang="en">
       {/*

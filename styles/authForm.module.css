@@ -1,0 +1,32 @@
+.container{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3em;
+  text-align: center;
+}
+
+.flexCol{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.authForm{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
+}
+
+.authButton{
+  padding: 0.5em;
+  background-color: transparent;
+  border: 2px solid teal;
+  border-radius: 5px;
+
+}
