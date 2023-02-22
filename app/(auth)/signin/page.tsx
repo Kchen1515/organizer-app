@@ -1,7 +1,24 @@
+import Image from 'next/image'
+import styles from '../../../styles/register.module.css'
+import testImage from '../../../assets/weather_db.jpg'
+import dashboardImage from '../../../assets/dashboard.jpg'
+import AuthForm from '@/components/AuthForm'
+
 export default function SignIn() {
   return (
-    <div>
-      <h1>Sign In</h1>
+    <div className={styles.container}>
+      <div className={styles.registerFormContainer}>
+          <AuthForm mode="signin"/>
+      </div>
+      <div className={styles.imageContainer}>
+        <Image
+          className={styles.registerImage}
+          src={dashboardImage}
+          alt="placeholder image"
+          quality={100}
+          />
+      </div>
     </div>
   )
 }
+

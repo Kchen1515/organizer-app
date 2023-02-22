@@ -29,7 +29,6 @@ const signinContent = {
 const AuthForm = ({mode}) => {
   const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
 
-  const [isActive, setIsActive] = useState(true)
   const [error, setError] = useState("");
   const router = useRouter()
 
@@ -58,7 +57,7 @@ const AuthForm = ({mode}) => {
       <form onSubmit={handleSubmit(onSubmit)} className={styles.authForm}>
         <h2>{content.subheader}</h2>
         {
-          isActive &&
+          mode === "register" &&
             <div className={styles.flexCol}>
               <input
                 placeholder="First Name"
