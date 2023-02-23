@@ -1,13 +1,18 @@
 "use client"
 
-import { register, signin } from "@/lib/api"
+import { signup, signin } from "@/lib/api"
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import styles from "../styles/authForm.module.css"
+import Link from "next/link";
+
+
 type Inputs = {
-  example: string,
-  exampleRequired: string,
+  firstName: string,
+  lastName: string,
+  email: string,
+  password: string
 };
 
 const registerContent = {
@@ -19,7 +24,7 @@ const registerContent = {
 };
 
 const signinContent = {
-  linkUrl: "/register",
+  linkUrl: "/signup",
   linkText: "Don't have an account?",
   header: "Welcome Back",
   subheader: "Enter your credentials to access your account",
@@ -34,8 +39,8 @@ const AuthForm = ({mode}) => {
 
   const onSubmit = async (data) => {
     try {
-      if (mode === "register") {
-        await register(data);
+      if (mode === "signup") {
+        await signup(data);
       } else {
         await signin(data);
       }
@@ -46,7 +51,7 @@ const AuthForm = ({mode}) => {
 
   }
 
-  const content = mode === "register" ? registerContent : signinContent;
+  const content = mode === "signup" ? registerContent : signinContent;
 
 
   return (
@@ -57,7 +62,7 @@ const AuthForm = ({mode}) => {
       <form onSubmit={handleSubmit(onSubmit)} className={styles.authForm}>
         <h2>{content.subheader}</h2>
         {
-          mode === "register" &&
+          mode === "signup" &&
             <div className={styles.flexCol}>
               <input
                 placeholder="First Name"
@@ -78,7 +83,7 @@ const AuthForm = ({mode}) => {
             {...register('password', {required: true})}/>
         </div>
         <button className={styles.authButton} type="submit">{content.buttonText}</button>
-        <p>{content.linkText}</p>
+        <p><Link href={content.linkUrl}>{content.linkText}</Link></p>
       </form>
     </div>
   )

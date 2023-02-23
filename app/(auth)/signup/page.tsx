@@ -4,11 +4,11 @@ import testImage from '../../../assets/weather_db.jpg'
 import dashboardImage from '../../../assets/dashboard.jpg'
 import AuthForm from '@/components/AuthForm'
 
-export default function Register() {
+export default function SignUp() {
   return (
     <div className={styles.container}>
       <div className={styles.registerFormContainer}>
-          <AuthForm mode="register"/>
+          <AuthForm mode="signup"/>
       </div>
       <div className={styles.imageContainer}>
         <Image
@@ -17,9 +17,7 @@ export default function Register() {
           alt="placeholder image"
           quality={100}
           />
-
       </div>
-
     </div>
   )
 }

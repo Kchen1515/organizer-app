@@ -18,9 +18,9 @@ const fetcher = async ({ url, method, body, json = true }) => {
   }
 };
 
-export const register = async (user) => {
+export const signup = async (user) => {
   return fetcher({
-    url: "/api/register",
+    url: "/api/signup",
     method: "POST",
     body: user,
     json: false,
